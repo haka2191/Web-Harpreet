@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Recepta de Cuina</title>
+</head>
+
+<body>
+    <form name="f1" id="f1" onsubmit="return false" oninput="o.value=a.valueAsNumber+b.valueAsNumber">
+        <label>Ejemplo de input con output</label><br>
+        <label>Numero A</label>
+        <input type="number" id="a" name="a" step="any">
+        <label>+</label>
+        <label>Numero B</label>
+        <input type="number" id="b" name="b" step="any">
+        <label>=</label>
+        <output id="o" name="o"></output>
+        <br><br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Borrar">
+    </form>
+</body>
+
+</html>
