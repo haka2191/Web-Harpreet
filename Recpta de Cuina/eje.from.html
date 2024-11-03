@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recepta de Cuina: Amanida de Fruites</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #2E8B57;
+        }
+        form {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f3f3f3;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #2E8B57;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3CB371;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Recepta: Amanida de Fruites Fresques</h1>
+    <h2>Ingredients:</h2>
+    <ul>
+        <li>1 tassa de llenties negres (urad dal) (remullades durant la nit)</li>
+        <li>1/4 tassa de mongetes vermelles (rajma) (remullades durant la nit)</li>
+        <li>4 tasses d’aigua</li>
+        <li>2 cullerades de mantega</li>
+        <li>1 cullerada d’oli vegetal</li>
+        <li>1 ceba mitjana, picada finament</li>
+        <li>1 culleradeta de pasta d’all</li>
+        <li>1 culleradeta de pasta de gingebre</li>
+        <li>2 tomàquets grans, triturats</li>
+        <li>1 culleradeta de comí en pols</li>
+        <li>1 culleradeta de coriandre en pols</li>
+        <li>1/2 culleradeta de cúrcuma en pols</li>
+        <li>1 culleradeta de garam masala</li>
+        <li>1/2 culleradeta de bitxo vermell en pols (opcional)</li>
+        <li>Sal al gust</li>
+        <li>1/4 tassa de nata líquida</li>
+        <li>Coriandre fresc, per decorar</li>
+    </ul>
+
+    <h2>Instruccions:</h2>
+    <ol>
+        <li><b>Cuina les llegums</b>: Bull les llenties i les mongetes amb aigua i 
+            <br>sal fins que estiguin tendres (20-30 minuts en olla a pressió).</li>
+        <li><b>Sofregit</b>: Daura la ceba amb mantega i oli, afegeix all, gingebre i 
+            <br>tomàquets, i cuina fins que es separi l’oli.</li>
+        <li><b>Espècies</b>: Afegeix comí, coriandre, cúrcuma i bitxo en pols, i cuina-ho 
+            <br>1-2 minuts.</li>
+        <li><b>Cocció final</b>: Incorpora les llegums i cuina a foc baix durant 30-40 minuts.</li>
+        <li><b>To cremós</b>: Afegeix garam masala, més mantega i nata, i cuina uns
+            <br>minuts fins que espesseixi.</li>
+        <li><b>Serveix</b>: Decora amb nata i coriandre, i acompanya amb arròs o naan.</li>
+    </ol>
+
+    <h2>Opinió i Suggeriments</h2>
+    <p>Deixa'ns la teva opinió sobre aquesta recepta!</p>
+
+    <!-- Formulari de comentaris -->
+    <div class="form-container" id="form-container">
+    <form action="/submit-feedback" method="post">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="treatment">Tractament:</label>
+        <select id="treatment" name="treatment">
+            <option value="Sr">Sr</option>
+            <option value="Sra">Sra</option>
+            <option value="Altres">Altres</option>
+        </select>
+
+        <label for="fruit">Fruita preferida:</label>
+        <input type="text" id="fruit" name="fruit">
+
+        <label for="address">Adreça:</label>
+        <input type="text" id="address" name="address">
+
+        <label for="comments">Comentaris:</label>
+        <textarea id="comments" name="comments" rows="4" placeholder="Escriu aquí els teus comentaris..."></textarea>
+
+        <button type="submit">Enviar opinió</button>
+    </form>
+</div>
+
+<!-- Contenidor de resposta després d’enviar -->
+<div class="response-container" id="response-container" style="display: none;">
+    <h2>Gràcies pel teu comentari!</h2>
+    <p><strong>Nom:</strong> <span id="responseName"></span></p>
+    <p><strong>Email:</strong> <span id="responseEmail"></span></p>
+    <p><strong>Tractament:</strong> <span id="responseTreatment"></span></p>
+    <p><strong>Fruita preferida:</strong> <span id="responseFruit"></span></p>
+    <p><strong>Comentaris:</strong> <span id="responseComments"></span></p>
+    <p><em>Enviat!</em></p>
+</div>
+
+<!-- JavaScript per gestionar el formulari -->
+<script>
+    function enviarFormulari(event) {
+        event.preventDefault(); // Evita que el formulari es recarregui
+
+        // Recull els valors del formulari
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const treatment = document.getElementById('treatment').value;
+        const fruit = document.getElementById('fruit').value;
+        const comments = document.getElementById('comments').value;
+
+        // Assigna els valors recollits als elements de resposta
+        document.getElementById('responseName').innerText = name;
+        document.getElementById('responseEmail').innerText = email;
+        document.getElementById('responseTreatment').innerText = treatment;
+        document.getElementById('responseFruit').innerText = fruit;
+        document.getElementById('responseComments').innerText = comments;
+
+        // Oculta el formulari i mostra el contenidor de resposta
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('response-container').style.display = 'block';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulari de Comentaris</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #2E8B57;
+        }
+        .form-container, .response-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f3f3f3;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            background-color: #2E8B57;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #3CB371;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h1>Deixa el teu comentari</h1>
+    
+    <!-- Contenidor del formulari -->
+    <div class="form-container" id="form-container">
+        <form id="feedbackForm" onsubmit="enviarFormulari(event)">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="treatment">Tractament:</label>
+            <select id="treatment" name="treatment">
+                <option value="Sr">Sr</option>
+                <option value="Sra">Sra</option>
+                <option value="Altres">Altres</option>
+            </select>
+    
+            <label for="fruit">Fruita preferida:</label>
+            <input type="text" id="fruit" name="fruit">
+    
+            <label for="comments">Comentaris:</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+    
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Contenidor de resposta després d’enviar -->
+    <div class="response-container" id="response-container" style="display: none;">
+        <h2>Gràcies pel teu comentari!</h2>
+        <p><strong>Nom:</strong> <span id="responseName"></span></p>
+        <p><strong>Email:</strong> <span id="responseEmail"></span></p>
+        <p><strong>Tractament:</strong> <span id="responseTreatment"></span></p>
+        <p><strong>Fruita preferida:</strong> <span id="responseFruit"></span></p>
+        <p><strong>Comentaris:</strong> <span id="responseComments"></span></p>
+        <p><em>Enviat!</em></p>
+
+        <!-- Afegir imatge de confirmació -->
+        <img src="Recpta de Cuina/images.png" alt="Confirmació d'enviament">
+    </div>
+
+    <!-- JavaScript per gestionar el formulari -->
+    <script>
+        function enviarFormulari(event) {
+            event.preventDefault(); // Evita que el formulari es recarregui
+
+            // Recull els valors del formulari
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const treatment = document.getElementById('treatment').value;
+            const fruit = document.getElementById('fruit').value;
+            const comments = document.getElementById('comments').value;
+
+            // Assigna els valors recollits als elements de resposta
+            document.getElementById('responseName').innerText = name;
+            document.getElementById('responseEmail').innerText = email;
+            document.getElementById('responseTreatment').innerText = treatment;
+            document.getElementById('responseFruit').innerText = fruit;
+            document.getElementById('responseComments').innerText = comments;
+
+            // Oculta el formulari i mostra el contenidor de resposta
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('response-container').style.display = 'block';
+        }
+    </script>
+</center> 
+</body>
+</html>
