@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Recpta-de-Cuina/css/Formulario.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Recepta de Cuina</title>
+</head>
+<body>
+    <form>
+    <h1>Recepta: Dal Makhani</h1>
+    <h2>Ingredients:</h2>
+    <ul>
+        <li>Lentejas negras (Urad Dal)</li>
+        <li>Frijoles rojos</li>
+        <li>Mantequilla y nata</li>
+        <li>Cebolla</li>
+        <li>Especias (jengibre, garam masala, comino, chile en polvo, sal y pimienta)</li>
+        <li>Tomates (me gusta usar puré de tomate y passata para una textura suave y un sabor intenso a tomate)</li>
+    </ul>    
+    <h2>Instruccions:</h2>
+    <ol>
+        <li><b>Remojar</b> las legumbres secas toda la noche para rehidratar las lentejas y los frijoles rojos.</li>
+        <li>Luego, <b>cocinar a fuego lento</b> las lentejas y los frijoles hasta que estén tiernos, 
+            y machacar un poco de la mezcla para obtener una textura ligeramente más suave.</li>
+        <li><b>Freír la cebolla</b> en ghee y mantequilla hasta que esté blanda.</li>
+        <li>Construir el sabor con <b>especias y tomates</b> para crear una base aromática deliciosa.</li>
+        <li>Agregar las lentejas y los frijoles cocidos a la sartén. Cocer el dal a fuego lento durante una hora, 
+            permitiendo que los sabores se integren y que el dal espese.</li>
+        <li>Agregar <b>nata y un poco más de mantequilla</b> para darle un acabado suave y rico, ¡y listo para servir!</li>
+    </ol>
+    <h2>Opinió i Suggeriments</h2>
+    <p>Deixa'ns la teva opinió sobre aquesta recepta!</p>
+
+    <div class="form-container" id="form-container">
+    <form action="/submit-feedback" method="post">
+        <label for="name">Nom:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="treatment">Tractament:</label><br>
+        <select id="treatment" name="treatment"><br>
+            <option value="Sr">Sr</option>
+            <option value="Sra">Sra</option>
+            <option value="Altres">Altres</option>
+        </select>
+        <label for="fruit">Fruita preferida:</label><br>
+        <input type="text" id="fruit" name="fruit"><br>
+        <label for="address">Adreça:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <label for="comments">Comentaris:</label><br>
+        <textarea id="comments" name="comments" rows="4" placeholder="Escriu aquí els teus comentaris..."></textarea><br>
+        <button type="submit">Enviar opinió</button><br>
+    </form>
+</div>
+</body>
+</html>
