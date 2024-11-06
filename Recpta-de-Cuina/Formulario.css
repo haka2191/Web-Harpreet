@@ -1,6 +1,6 @@
 body{
     background-size:cover;
-    background-image: url(Recpta-de-Cuina/Formulario.html);
+    background-image: url(background.jpg);
 }
 h1{
     font-style: italic;
@@ -13,3 +13,4 @@ form{
 input{
     border-style: solid;
     outline: auto;
+}
